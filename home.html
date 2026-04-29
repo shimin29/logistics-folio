@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Home</title>
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+        <!-- Bootstrap Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+
+        <!-- google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+
+        <!-- google fonts 2 -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet" />
+    </head>
+    <style>
+        body {
+            margin: 0;
+            color: black;
+            scroll-behavior: smooth;
+        }
+
+        section {
+            scroll-margin-top: 85px;
+        }
+
+        .navbar {
+            z-index: 1000;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 28px;
+        }
+
+        .nav-link {
+            white-space: nowrap;
+        }
+
+        .hero {
+            display: flex;
+            position: relative;
+            height: calc(100vh - 90px);
+            background-image: url("background.jpeg");
+            background-size: cover;
+            background-position: center;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 100px;
+        }
+
+        .hero-content h1 {
+            color: rgb(9, 147, 216);
+            font-size: 80px;
+            font-family: "Bebas Neue", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            padding-left: 20px;
+        }
+        .hero-content h2 {
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 40px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+        }
+
+        .btn-learn {
+            background: rgb(48, 162, 211);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            margin-top: 50px;
+            width: 200px;
+            height: 60px;
+            font-size: 20px;
+        }
+
+        .btn-learn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(240, 243, 245, 0.9);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        #about {
+            position: relative;
+            background-image: url(logisticbg.jpg);
+            background-size: cover;
+            background-position: center;
+            height: calc(100vh - 90px);
+            display: flex;
+            align-items: center;
+            padding: 60px;
+            color: white;
+        }
+
+        .about-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border-radius: 10px;
+            font-family: "Lato", sans-serif;
+            font-weight: 700;
+            font-style: italic;
+            font-size: 20px;
+        }
+
+        #about::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .flip-card {
+            background-color: transparent;
+            width: 400px;
+            height: 400px;
+            border-radius: 15px;
+            border: none;
+            overflow: hidden;
+            perspective: 1000px;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            border-radius: 15px;
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .flip-card-front {
+            display: flex;
+            color: black;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .flip-card-back {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background-color: white;
+            color: rgb(12, 11, 11);
+            transform: rotateY(180deg);
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border-radius: 15px;
+        }
+        .flip-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .flip-card-back p {
+            min-height: 50px;
+        }
+
+        #select {
+            background: url(background.6.jpg);
+            background-size: cover;
+            background-position: center;
+            height: calc(100vh - 90px);
+            display: flex;
+            align-items: center;
+            padding: 60px;
+            color: white;
+            position: relative;
+        }
+        #select::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+
+    <body data-bs-spy="scroll" data-bs-target="#navMenu" data-bs-offset="90" tabindex="0">
+        <!-- NAVBAR -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light px-4 fs-5">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="logo2.png" alt="Logo" width="95" height="80" class="me-2" />
+                Shape The Future, Code The Change
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end fw-bold" id="navMenu">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link text-dark" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="#im">Inventory Management</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="#supply-chain-security">Supply chain Security</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="#last-mile-delivery">Last-Mile Delivery</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" href="#contact-us">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <section id="home">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Welcome to Logistics Digital Learning Platform</h1>
+                    <h2>Behind every successful delivery is a system that never stops moving.</h2>
+                    <a href="#about" class="btn btn-learn">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="about-content">
+                <h1>What is Logistics?</h1>
+                <p>
+                    Logistics is the part of supply chain management that deals with the efficient forward and reverse flow of goods, services, and related information from the point of origin to the point of consumption according to the needs of customers, and a logistician is a professional
+                    working in the field of logistics management. Logistics management is a component that holds the supply chain together.The resources managed in logistics include physical goods such as materials, equipment, and foodstuffs, and also intangible items such as time and information.
+                </p>
+            </div>
+        </section>
+
+        <section id="select">
+            <div class="container">
+                <div class="row justify-content-center g-4">
+                    <!-- Card 1 -->
+                    <div class="col-md-4 d-flex justify-content-center">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="inventory.jpg" style="width: 100%; height: 100%; object-fit: cover" />
+                                </div>
+                                <div class="flip-card-back">
+                                    <h5>Inventory Management</h5>
+                                    <p>Ensure stock is available efficiently.</p>
+                                    <a href="#im" class="btn btn-primary btn-sm">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="col-md-4 d-flex justify-content-center">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="supplyphoto.jpeg" style="width: 100%; height: 100%; object-fit: cover" />
+                                </div>
+                                <div class="flip-card-back">
+                                    <h5>Supply Chain Security</h5>
+
+                                    <p>Protect goods and data across logistics.</p>
+
+                                    <a href="#supply-chain-security" class="btn btn-primary btn-sm">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="col-md-4 d-flex justify-content-center">
+                        <div class="flip-card">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="lastmile.jpg" style="width: 100%; height: 100%; object-fit: cover" />
+                                </div>
+                                <div class="flip-card-back">
+                                    <h5>Last-Mile Delivery</h5>
+                                    <p>Final step to deliver goods to customers.</p>
+                                    <a href="#last-mile-delivery" class="btn btn-primary btn-sm">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="bg-dark text-white pt-4 pb-3 mt-5">
+            <div class="container text-center">
+                <h5 class="mb-3">High Five Team Logistics</h5>
+
+                <p class="mb-2">Inventory & Logistics Management Project</p>
+
+                <!-- Social icons -->
+                <div class="mb-3">
+                    <a href="#" class="text-white me-3"><i class="bi bi-whatsapp"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-white"><i class="bi bi-envelope"></i></a>
+                </div>
+
+                <hr class="border-light" />
+
+                <p class="mb-0 small">© 2026 All Rights Reserved | Designed by High Five Team</p>
+            </div>
+        </footer>
+    </body>
+</html>
